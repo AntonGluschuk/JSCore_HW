@@ -6,9 +6,9 @@
 let userName = prompt("What's your name?");
 
 if(userName === null || userName === "") {
-    alert("Stop clicking Esc OR sending empty string!");
+    alert("Stop clicking Esc/Cancel OR sending empty string!");
 } else {
-    alert(`Привет, ${userName}!`);
+    alert(`Hello, ${userName}!`);
 }
 
 /*
