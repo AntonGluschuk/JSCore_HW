@@ -5,12 +5,12 @@
 */
 
 const euroRate = 0.83;
-let amountOfDollars = +prompt("Please enter amount of dollars");
+let amountOfDollars = +prompt("Please enter amount of USD and we convert it to EUR:");
 let amountOfEuros = euroRate * amountOfDollars;
-if(isNaN(amountOfEuros)) {
+if(isNaN(amountOfEuros) || amountOfEuros === 0 || amountOfEuros < 0) {
     alert("Can't make conversion, you input invalid value");
 } else {
-    alert(`USD converts into ${Math.abs(amountOfEuros)} EUR`);
+    alert(`EUR: ${amountOfEuros}`);
 }
 
 /*
