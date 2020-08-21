@@ -18,7 +18,7 @@ if(moneyInPocket < oneChocolatePrice) {
 }  else {
     let amountOfChocoBars = moneyInPocket / oneChocolatePrice;
     let moneyChange = moneyInPocket % oneChocolatePrice;   
-    alert(`You can buy ${~~amountOfChocoBars} chocolate bars and your change will be: ${moneyChange.toFixed(2)}`);    
+    alert(`You can buy ${~~amountOfChocoBars} chocolate bars and your change will be: ${moneyChange.toFixed(2)}`);
 }
 
 /*
