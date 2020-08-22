@@ -18,20 +18,30 @@
     номером N счастливый и «NO» в противном случае.
 */
 
+let firstSum = 0;
+let secondSum = 0;
 const ticket = +prompt('Enter ticket number between (100000 and 999999) :');
 
 if(ticket < 10**5 || ticket > 10**6 || isNaN(ticket)) {
     alert('Our of range, please try again.');
 } else {
-    const handleTicket = ticket.toString();
-    console.log(handleTicket);
-    const firstThreeDigits = +handleTicket.slice(0, 3);
-    console.log(firstThreeDigits);
-    const lastThreeDigits = +handleTicket.slice(3, 6);
-    console.log(lastThreeDigits);
+    const handleTicket = ticket.toString().split('');    
+    const firstThreeDigits = handleTicket.slice(0, 3);    
+    const lastThreeDigits = handleTicket.slice(3, 6);
+    
+    for(let i = 0; i < firstThreeDigits.length; i++) {
+        firstSum = firstSum + +firstThreeDigits[i];
+    }
+    for(let i = 0; i < lastThreeDigits.length; i++) {
+        secondSum = secondSum + +lastThreeDigits[i];
+    }
+    // for(let num of firstThreeDigits) {firstSum += +num};
+    // for(let num of lastThreeDigits) {secondSum += +num};
+    
+    firstSum === secondSum ? alert('YES') : alert('NO');
 }
 
 /*
 Вопросы:
-
+    1. Как решить не используя преобразования в строку и массив?
 */

@@ -34,15 +34,15 @@
 
 const oneKiloSand1 = +prompt('Enter price (between 70 and 100) in RUB for elite 1 kg/sand:');
 const oneKiloSand2 = +prompt('Enter price (between 30 and 69) in RUB for medium 1 kg/sand:');
-const oneKiloSand3 = +prompt('Enter price (between 1 and 29) in RUB for normal 1 kg/sand:');
-const sandContainer1 = +prompt('Enter volume (max 100kg) of the elite sand container in kg:');
-const sandContainer2 = +prompt('Enter volume (max 50kg) of the medium sand container in kg:');
-const sandContainer3 = +prompt('Enter volume (max 25kg) of the normal sand container in kg:');
+const oneKiloSand3 = +prompt('Enter price (between 10 and 29) in RUB for normal 1 kg/sand:');
+const sandContainer1 = +prompt('Enter volume (max 80-100kg) of the elite sand container in kg:');
+const sandContainer2 = +prompt('Enter volume (max 35-50kg) of the medium sand container in kg:');
+const sandContainer3 = +prompt('Enter volume (max 10-25kg) of the normal sand container in kg:');
 
 function proceedsEliteContainer(oneKiloEliteSand, eliteSandContainer) {
     if(oneKiloEliteSand < 70 || oneKiloEliteSand > 100) {
         return alert('You enter wrong price for elite sand, please try again.');
-    } else if (eliteSandContainer > 100) {
+    } else if (eliteSandContainer < 80 || eliteSandContainer > 100) {
         return alert('You enter wrong volume for elite container, please try again.');
     } else {
         return eliteSandContainer * oneKiloEliteSand;
@@ -52,7 +52,7 @@ function proceedsEliteContainer(oneKiloEliteSand, eliteSandContainer) {
 function proceedsMediumContainer(oneKiloMediumSand, mediumSandContainer) {
     if(oneKiloMediumSand < 30 || oneKiloMediumSand > 69) {
         return alert('You enter wrong price for medium sand, please try again.');
-    } else if (mediumSandContainer > 50) {
+    } else if (mediumSandContainer < 35 || mediumSandContainer > 50) {
         return alert('You enter wrong volume for medium container, please try again.');
     } else {
         return mediumSandContainer * oneKiloMediumSand;
@@ -60,16 +60,19 @@ function proceedsMediumContainer(oneKiloMediumSand, mediumSandContainer) {
 }
 
 function proceedsNormalContainer(oneKiloNormalSand, normalSandContainer) {
-    if(oneKiloNormalSand < 1 || oneKiloNormalSand > 29) {
+    if(oneKiloNormalSand < 10 || oneKiloNormalSand > 29) {
         return alert('You enter wrong price for normal sand, please try again.');
-    } else if (normalSandContainer > 25) {
+    } else if (normalSandContainer < 10 || normalSandContainer > 25) {
         return alert('You enter wrong volume for normal container, please try again.');
     } else {
         return normalSandContainer * oneKiloNormalSand;
     }
 }
 
-const generalProceeds = proceedsEliteContainer(oneKiloSand1, sandContainer1) + proceedsMediumContainer(oneKiloSand2, sandContainer2) + proceedsNormalContainer(oneKiloSand3, sandContainer3);
+const generalProceeds = 
+    proceedsEliteContainer(oneKiloSand1, sandContainer1)
+  + proceedsMediumContainer(oneKiloSand2, sandContainer2)
+  + proceedsNormalContainer(oneKiloSand3, sandContainer3);
 if(isNaN(generalProceeds) || generalProceeds <= 0) {
     alert('Received invalid values, cannot make any calculations, please try again.');
 } else {
@@ -78,5 +81,6 @@ if(isNaN(generalProceeds) || generalProceeds <= 0) {
 
 /*
 Вопросы:
-
+1. Как можно решить более математическим способом?
+2. Как оптимизировать?
 */

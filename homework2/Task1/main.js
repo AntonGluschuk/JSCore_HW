@@ -26,25 +26,38 @@
     количество банок краски, необходимых для покраски стен в офисе.
 */
 
-const paintPot = 16;
-const officeLength = Math.abs(+prompt('Enter length of the office in meters'));
-const officeWidth = Math.abs(+prompt('Enter width of the office in meters'));
-const officeHeight = Math.abs(+prompt('Enter height of the office in meters'));
+const paintPot = 16; // 16 square meters = one paint pot
+const physicalValues = [];
+const officeLength = +prompt('Enter length of the office in meters');
+physicalValues.push(officeLength);
+const officeWidth = +prompt('Enter width of the office in meters');
+physicalValues.push(officeWidth);
+const officeHeight = +prompt('Enter height of the office in meters');
+physicalValues.push(officeHeight);
 
-const tempCheck = officeLength * officeWidth * officeHeight;
-
-if(officeHeight > 1000 || officeWidth > 1000 || officeLength > 1000) {
-    alert('You went out of limit, enter each number between 0 and 1000');
-} else if (isNaN(tempCheck) || tempCheck <=0 ) {
-    alert('You enter invalid values.');
-} else {
-    const areaOfWalls = (officeWidth*2 + officeLength*2) * officeHeight;
-    console.log(areaOfWalls);
-    const minimalPaintPots = areaOfWalls / paintPot;
-    alert(`You need minimum ${minimalPaintPots} paint pots for office walls`);
+function checkValidValues() {
+    for(let i = 0; i < physicalValues.length; i++) {
+        if(physicalValues[i] > 1000 || physicalValues[i] <= 0 || isNaN(physicalValues[i])) {
+            return 'You enter invalid values, please try again.'; 
+        }
+    }
 }
+
+function calcMinPaintPots() {    
+    if(checkValidValues()) {
+        return alert(checkValidValues());
+    } else {
+        const areaOfWalls = (officeWidth * 2 + officeLength * 2) * officeHeight;
+        console.log(areaOfWalls);
+        const minimalPaintPots = areaOfWalls / paintPot;        
+        console.log(minimalPaintPots);
+        return alert(`You need minimum ${minimalPaintPots} paint pots for office walls`);
+    }    
+}
+
+calcMinPaintPots();
 
 /*
 Вопросы:
-
+    1. Как можно решить по другому?
 */
