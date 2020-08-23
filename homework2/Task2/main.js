@@ -73,6 +73,7 @@ const generalProceeds =
     proceedsEliteContainer(oneKiloSand1, sandContainer1)
   + proceedsMediumContainer(oneKiloSand2, sandContainer2)
   + proceedsNormalContainer(oneKiloSand3, sandContainer3);
+  
 if(isNaN(generalProceeds) || generalProceeds <= 0) {
     alert('Received invalid values, cannot make any calculations, please try again.');
 } else {

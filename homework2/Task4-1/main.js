@@ -24,7 +24,7 @@ switch(true){
         break;
     }
     default: {
-        alert('You are not a person!');
+        alert('You enter wrong values!');
     }   
 }
 

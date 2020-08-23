@@ -6,18 +6,21 @@
 
 const yearCheck = +prompt('Enter a year:');
 
-
-yearCheck % 400 === 0 || yearCheck 
-
 switch (true) {
-    case yearCheck <= 2000 || yearCheck > 3000 || isNaN(yearCheck): {
+    case yearCheck <= 0 || isNaN(yearCheck): {
         alert('Error, try again.');
         break;
     }
-    case (yearCheck % 400 === 0): {        
+    case yearCheck % 400 === 0: { 
+        alert('This is a leap year!');       
+        break;
+    }
+    case yearCheck % 4 === 0: {
+        yearCheck % 100 === 0 ? alert('This is a regular year.') : alert('This is a leap year!');   
         break;
     }
     default:
+        alert('This is a regular year.');
         break;
 }
 
