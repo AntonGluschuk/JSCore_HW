@@ -15,3 +15,6 @@ SoftServe JSCore courses - homework
 * [Task 4-8](https://github.com/AntonGluschuk/JSCore_HW/tree/master/homework2/Task4-8)
 * [Task 4-9](https://github.com/AntonGluschuk/JSCore_HW/tree/master/homework2/Task4-9)
 * [Task 4-10](https://github.com/AntonGluschuk/JSCore_HW/tree/master/homework2/Task4-10)
+
+### Deployed homework #2 on github pages:
+[antongluschuk.github.io/jscore_hw/](antongluschuk.github.io/jscore_hw/)
