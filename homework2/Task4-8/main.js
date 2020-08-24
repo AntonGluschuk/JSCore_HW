@@ -5,9 +5,9 @@
 */
 
 const pi = 3.14;
-const circleCircumference = +prompt('Enter circumference:');
+const circumferenceLength = +prompt('Enter circumference length:');
 const squarePerimeter = +prompt('Enter square perimeter:');
-const circleDiagonal = circleCircumference / pi;
+const circleDiagonal = circumferenceLength / pi;
 const squareDiagonal = squarePerimeter * Math.sqrt(2) / 4;
 
 circleDiagonal <= squareDiagonal ? alert('Circumference can fit in square.') : alert('Circumference cannot fit in square.');

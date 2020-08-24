@@ -47,11 +47,9 @@ function calcMinPaintPots() {
     if(checkValidValues()) {
         return alert(checkValidValues());
     } else {
-        const areaOfWalls = (officeWidth * 2 + officeLength * 2) * officeHeight;
-        console.log(areaOfWalls);
-        const minimalPaintPots = areaOfWalls / paintPot;        
-        console.log(minimalPaintPots);
-        return alert(`You need minimum ${minimalPaintPots} paint pots for office walls`);
+        const areaOfWalls = (officeWidth * 2 + officeLength * 2) * officeHeight;       
+        const minimalPaintPots = (areaOfWalls / paintPot);    
+        return alert(`You need minimum ${~~minimalPaintPots} paint pots for office walls`);
     }    
 }
 
@@ -59,5 +57,5 @@ calcMinPaintPots();
 
 /*
 Вопросы:
-    1. Как можно решить по другому?
+    1. Как ещё есть варианты решения данной задачи?
 */

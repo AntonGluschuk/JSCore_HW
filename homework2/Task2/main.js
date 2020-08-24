@@ -77,11 +77,11 @@ const generalProceeds =
 if(isNaN(generalProceeds) || generalProceeds <= 0) {
     alert('Received invalid values, cannot make any calculations, please try again.');
 } else {
-    alert(`Workers earned ${generalProceeds} RUB after selling all sand containers.`);
+    alert(`Workers earned ${~~generalProceeds} RUB after selling all sand containers.`);
 }
 
 /*
 Вопросы:
-1. Как можно решить более математическим способом?
-2. Как оптимизировать?
+    1. Как можно решить альтернативным способом?
+    2. Как можно дополнительно оптимизировать?
 */

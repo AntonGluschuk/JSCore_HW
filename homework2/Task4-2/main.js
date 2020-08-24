@@ -5,6 +5,7 @@
 */
 
 const num = prompt('Input a number from 0 to 9 and I`ll give you related special symbol:', 0);
+
 const specialSymbols = {
     1: '!',
     2: '@',
@@ -17,6 +18,7 @@ const specialSymbols = {
     9: '(',
     0: ')'
 }
+
 !(num === null || num === "" || isNaN(num)) ? Number(num) : null;
 num in specialSymbols ? alert(`Your special symbol is: ${specialSymbols[num]}`) : alert('Wrong value');
 

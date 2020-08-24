@@ -85,5 +85,5 @@ if(checkValidDate(arbitraryDay, arbitraryMonth, arbitraryYear)) {
 
 /* 
 Вопросы:
-    1. Как можно по другому решить эту задачу?
+    1. Как есть ещё варианты решения данной задачи?
 */
