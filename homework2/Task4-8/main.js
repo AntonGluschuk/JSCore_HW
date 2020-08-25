@@ -7,10 +7,15 @@
 const pi = 3.14;
 const circumferenceLength = +prompt('Enter circumference length:');
 const squarePerimeter = +prompt('Enter square perimeter:');
-const circleDiagonal = circumferenceLength / pi;
-const squareDiagonal = squarePerimeter * Math.sqrt(2) / 4;
 
-circleDiagonal <= squareDiagonal ? alert('Circumference can fit in square.') : alert('Circumference cannot fit in square.');
+if(isNaN(circumferenceLength) || circumferenceLength <= 0 || isNaN(squarePerimeter) || squarePerimeter <= 0) {
+    alert('You enter invalid values, please try again.');
+} else {
+    const circleDiagonal = circumferenceLength / pi;
+    const squareDiagonal = squarePerimeter * Math.sqrt(2) / 4;
+
+    circleDiagonal <= squareDiagonal ? alert('Circumference can fit in square.') : alert('Circumference cannot fit in square.');
+}
 
 /* 
 Вопросы:

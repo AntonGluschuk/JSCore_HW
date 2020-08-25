@@ -37,7 +37,7 @@ physicalValues.push(officeHeight);
 
 function checkValidValues() {
     for(let i = 0; i < physicalValues.length; i++) {
-        if(physicalValues[i] > 1000 || physicalValues[i] <= 0 || isNaN(physicalValues[i])) {
+        if(physicalValues[i] > 1000 || physicalValues[i] <= 0 || isNaN(physicalValues[i]) || !Number.isInteger(physicalValues[i])) {
             return 'You enter invalid values, please try again.'; 
         }
     }
@@ -48,7 +48,7 @@ function calcMinPaintPots() {
         return alert(checkValidValues());
     } else {
         const areaOfWalls = (officeWidth * 2 + officeLength * 2) * officeHeight;       
-        const minimalPaintPots = (areaOfWalls / paintPot);    
+        const minimalPaintPots = areaOfWalls / paintPot;    
         return alert(`You need minimum ${~~minimalPaintPots} paint pots for office walls`);
     }    
 }

@@ -22,7 +22,7 @@ let firstSum = 0;
 let secondSum = 0;
 const ticket = +prompt('Enter ticket number between (100000 and 999999) :');
 
-if(ticket < 10**5 || ticket > 10**6 || isNaN(ticket)) {
+if(ticket < 10**5 || ticket > 10**6 || isNaN(ticket) || !Number.isInteger(ticket)) {
     alert('Our of range, please try again.');
 } else {
     const handleTicket = ticket.toString().split('');    

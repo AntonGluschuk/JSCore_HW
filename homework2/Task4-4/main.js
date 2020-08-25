@@ -7,7 +7,7 @@
 const yearCheck = +prompt('Enter a year:');
 
 switch (true) {
-    case yearCheck <= 0 || isNaN(yearCheck): {
+    case yearCheck <= 0 || isNaN(yearCheck) || !Number.isInteger(yearCheck): {
         alert('Error, try again.');
         break;
     }

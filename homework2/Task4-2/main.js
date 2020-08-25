@@ -20,6 +20,7 @@ const specialSymbols = {
 }
 
 !(num === null || num === "" || isNaN(num)) ? Number(num) : null;
+
 num in specialSymbols ? alert(`Your special symbol is: ${specialSymbols[num]}`) : alert('Wrong value');
 
 

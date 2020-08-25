@@ -7,6 +7,10 @@
 const age = +prompt('Enter your age and I`ll tell who you are:');
 
 switch(true){
+    case (isNaN(age) || !Number.isInteger(age)) : {
+        alert('Invalid values.');
+        break;
+    }
     case (age > 0 && age <= 12) : {
         alert('You are a child!');
         break;
@@ -20,11 +24,11 @@ switch(true){
         break;
     }
     case (age > 60) : {
-        alert('You are an older person or a vegeterian!');
+        alert('You are an older person!');
         break;
     }
     default: {
-        alert('You enter wrong values!');
+        alert('You enter wrong values.');
     }   
 }
 

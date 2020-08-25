@@ -64,11 +64,11 @@ function checkCurrentMonth(month) {
 }
 
 function checkValidDate(day, month, year) {
-    if(day <= 0 || day > daysInCurrentMonth || isNaN(day)) {
+    if(day <= 0 || day > daysInCurrentMonth || isNaN(day) || !Number.isInteger(day)) {
         return 'You enter invalid day value';
-    } else if(month <= 0 || month > 12 || isNaN(month)) {
+    } else if(month <= 0 || month > 12 || isNaN(month) || !Number.isInteger(month)) {
         return 'You enter invalid month value';
-    } else if(year <= 0 || isNaN(year)) {
+    } else if(year <= 0 || isNaN(year) || !Number.isInteger(year)) {
         return 'You enter invalid year value';
     }
 }
