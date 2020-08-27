@@ -28,16 +28,17 @@ function getDNASecondPart(firstDNA) {
     
     for(let i = 0; i < noSpacefirstPartDNA.length; i++) {
         
-        if (noSpacefirstPartDNA.codePointAt(i) === 65) {
+        if (noSpacefirstPartDNA.codePointAt(i) === 65) { // 'A'
             secondPartDNA += String.fromCodePoint(84);
-        } else if (noSpacefirstPartDNA.codePointAt(i) === 84) {
+        } else if (noSpacefirstPartDNA.codePointAt(i) === 84) { // 'T'
             secondPartDNA += String.fromCodePoint(65);
-        } else if (noSpacefirstPartDNA.codePointAt(i) === 67) {
+        } else if (noSpacefirstPartDNA.codePointAt(i) === 67) { // 'C'
             secondPartDNA += String.fromCodePoint(71);
-        } else if (noSpacefirstPartDNA.codePointAt(i) === 71) {
+        } else if (noSpacefirstPartDNA.codePointAt(i) === 71) { // 'G'
             secondPartDNA += String.fromCodePoint(67);
         }     
-    }       
+    }
+           
     return secondPartDNA;
 }
 

@@ -15,20 +15,22 @@
     "Lets all go on holiday somewhere very cold" --> 2)
 */
 
-let arbitraryString = prompt('Enter an arbitrary string:');
+const arbitraryString = prompt('Enter an arbitrary string:');
 
 function getShortestWordLength(aString) {
     let strArr = aString.split(' ');
     let arrOfLengths = [];
     strArr.forEach(element => {
         arrOfLengths.push(element.length);
-    });    
+    });
+        
     return Math.min(...arrOfLengths);
 }
 
 alert(arbitraryString === null ||
-      arbitraryString === '' ? 'You enter invalid values' :
-       `Length of the shortest word(s): ${getShortestWordLength(arbitraryString)}`);
+      arbitraryString === '' ? 
+      'You enter invalid values' :
+      `Length of the shortest word(s): ${getShortestWordLength(arbitraryString)}`);
 
 
 /* 

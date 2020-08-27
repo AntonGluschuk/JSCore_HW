@@ -17,27 +17,35 @@
 
     "is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
 
-    "4of Fo1r pe6ople g3ood th5e
-    the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+    "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
 
     ""  -->  ""
 */
 
-let stringWithNum = prompt('Enter a string where words must contain one num between (1-9):');
-const []
+const stringWithNum = prompt('Enter a string where words must contain single number between (1-9):');
+const nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-function getOrderedString(numString) {
-    let strArr = numString.split(' ');
-    strArr.forEach(element => {
-        element.includes
-    });
-    console.log(strArr);
+function getOrderedString(numString, numbers) {
+    let wordsArr = numString.split(' ');   
+    let sortedArr = [];      
+    for(let i = 0; i < numbers.length; i++) { 
+        for(let j = 0; j < wordsArr.length; j++) {
+            if(wordsArr[j].includes(numbers[i])) {
+                sortedArr[i] = wordsArr[j];    
+            }
+        }
+    } 
 
+    return sortedArr.join(' ');
 }
 
-getOrderedString(stringWithNum);
+if(stringWithNum === null) {
+    alert('Wrong value, please try again.')
+} else {
+    alert(stringWithNum === ' ' ? ' ' : getOrderedString(stringWithNum, nums));
+}
 
 /* 
 Вопросы:
-
+    1. Как оптимизировать чтобы отслеживало и сортировало больше одног слова с одинаковой цифрой? 
 */

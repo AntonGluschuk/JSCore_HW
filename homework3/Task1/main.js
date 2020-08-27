@@ -29,22 +29,25 @@ const someString = prompt('Enter an arbitrary string:');
 function countDuplicates(someStr) {
     let lowerStr = someStr.toLowerCase().trim();
     let tempArr = [];
-    let count = [];        
+    let duplicatesArr = [];        
     for(let i = 0; i < lowerStr.length; i++) {
         tempArr = lowerStr.split(lowerStr[i]);        
         if(tempArr.length > 2) {
-            if(count.includes(lowerStr[i])) {
-                count.push(0);
+            if(duplicatesArr.includes(lowerStr[i])) {
+                duplicatesArr.push(0);
             } else {
-                count.push(lowerStr[i]);
+                duplicatesArr.push(lowerStr[i]);
             }            
         } else {
-            count.push(0);
+            duplicatesArr.push(0);
         }
-    }   
-    let result = count.filter(elem => elem !== 0);
+    } 
+
+    let result = duplicatesArr.filter(elem => elem !== 0);
+
     return result.length;     
 }
+
 if(someString === null || someString === '') {
     alert('You enter invalid values.');
 } else {
