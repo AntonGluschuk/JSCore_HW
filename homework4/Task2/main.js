@@ -26,97 +26,111 @@
     in the context of a game of Tic-Tac-Toe.
 */
 
-const ticTacBoard = [[1, 0, 1],
-                     [0, 1, 1],
-                     [0, 1, 1]];
+const ticTacBoard = [[0, 0, 1],
+                     [0, 1, 2],
+                     [2, 1, 0]];
 
 function checkBoardCondition(ttBoard) {    
-    let result = '';
-    let firstVertical1 = [];
-    let secondVertical1 = [];
-    let thirdVertical1 = [];
-    let firstVertical2 = [];
-    let secondVertical2 = [];
-    let thirdVertical2 = [];
-
-    // let verticalForX = [];
-    // for(let i = 0; i < ttBoard.length; i++) {
-    //     switch (true) {
-    //         case (ttBoard[i].every(singlePos => singlePos === 1)):
-    //             result += '"X" won';
-    //             break;
-    //         case (ttBoard[i].every(singlePos => singlePos === 2)):
-    //             result += '"O" won';
-    //             break;
-    //         default:
-    //             break;
-    //     }     
-    // }
+    let openFullBoard = [];    
     
-    // for(let i = 0; i < 3; i++) {
-    //     let everyX1 = ttBoard[i].map(linePos => linePos === 1 ? linePos : 0);           
-    //     verticalForX.push(everyX1);        
-    // }
-    // let vFXWin = [];
-    // for(let i = 0; i < 3; i++) {
-        
-    //     if(verticalForX[i].every(vPos => vPos === 1)) {
-    //        vFXWin.push(true); 
-    //     } else {
-    //        vFXWin.push(false);  
-    //     }
-    // }
-    // console.log(vFXWin);    
-    // console.log(verticalForX);
-
-    for(let i = 0; i < ttBoard.length; i++) {        
-        firstVertical2.push(ttBoard[i][0]);    
-    }
-    firstVertical2.every(pos => pos === 2) ? result += '"O" won' : 0;
-
-    for(let i = 0; i < ttBoard.length; i++) {        
-        secondVertical2.push(ttBoard[i][1]);    
-    }
-    secondVertical2.every(pos => pos === 2) ? result += '"O" won' : 0;
-
-    for(let i = 0; i < ttBoard.length; i++) {        
-        thirdVertical2.push(ttBoard[i][2]);    
-    }
-    thirdVertical2.every(pos => pos === 2) ? result += '"O" won' : 0;
-
-    if(ttBoard[0][0] === 1 && ttBoard[1][1] === 1 && ttBoard[2][2] === 1) {
-        result += '"X" won';
-    } else if(ttBoard[0][2] === 1 && ttBoard[1][1] === 1 && ttBoard[2][0] === 1) {
-        result += '"X" won';
-    } else if(ttBoard[0][0] === 2 && ttBoard[1][1] === 2 && ttBoard[2][2] === 2) {
-        result += '"O" won';
-    } else if(ttBoard[0][2] === 2 && ttBoard[1][1] === 2 && ttBoard[2][0] === 2) {
-        result += '"O" won';
-    }    
-    console.log(result);    
-    /* 
-     Для отслеживания победы Х(крестика)
-        Если хотябы один массив состоит полностью из 1-иц - то победил Х - готово
-        Если во всех массивах 0-ой елемент содержит 1-цу - то победил Х - готово
-        Если во всех массивах 1-ой елемент содержит 1-цу - то победил Х - готово
-        Если во всех массивах 2-ой елемент содержит 1-цу - то победил Х - готово
-        Если в 1 массиве 0-ой, во 2 массиве 1-ый и в 3 массиве 2-ой (елементы) содержат 1-цы - то победил Х - готово
-        Если в 1 массиве 2-ой, во 2 массиве 1-ый и в 3 массиве 0-ой (елементы) содержат 1-цы - то победил Х - готово
-
-    Для отслеживания победы O(нолика)
-        Если хотябы один массив состоит полностью из 2-ек - то победил O - готово
-        Если во всех массивах 0-ой елемент содержит 2-ку - то победил O - готово
-        Если во всех массивах 1-ой елемент содержит 2-ку - то победил O - готово
-        Если во всех массивах 2-ой елемент содержит 2-ку - то победил O - готово
-        Если в 1 массиве 0-ой, во 2 массиве 1-ый и в 3 массиве 2-ой (елементы) содержат 2-ки - то победил O - готово
-        Если в 1 массиве 2-ой, во 2 массиве 1-ый и в 3 массиве 0-ой (елементы) содержат 2-ки - то победил O - готово
-    */
+    ttBoard.forEach(boardLine => {
+        openFullBoard.push(...boardLine);
+    });
     
+    let winnerX = checkForX(openFullBoard);
+    let winnerO = checkForO(openFullBoard);
+
+    switch (true) {
+        case openFullBoard.includes(0):
+            return `${-1} - the board is not yet finished`;
+        case (winnerX || winnerO) === '':
+            return `${0} - it's a draw`;
+        case winnerX === '"X" won':
+            return `${1} - ${winnerX}`;
+        case winnerO === '"O" won':
+            return `${2} - ${winnerO}`;    
+        default:
+            break;
+    }       
 }
 
-checkBoardCondition(ticTacBoard);
+function checkUniquePositions(fullBoard, arrayOfPositions) {
+    let uniqueLine = fullBoard.filter((pos, index) => arrayOfPositions.includes(index))
+    if(uniqueLine.every(pos => pos === 1)) return 'X';
+    if(uniqueLine.every(pos => pos === 2)) return 'O';
+}
+
+function checkForX(fullBoard) {
+    let resultForX = '';
+    
+    switch (true) {
+        case (fullBoard.slice(0, 3).every(pos => pos === 1)):
+            resultForX += '"X" won';
+            break;
+        case (fullBoard.slice(3, 6).every(pos => pos === 1)):
+            resultForX += '"X" won';
+            break;
+        case (fullBoard.slice(6).every(pos => pos === 1)):
+            resultForX += '"X" won';
+            break;
+        case (checkUniquePositions(fullBoard, [0,3,6]) === 'X'):
+            resultForX += '"X" won';
+            break;
+        case (checkUniquePositions(fullBoard, [1,4,7]) === 'X'):
+            resultForX += '"X" won';
+            break;
+        case (checkUniquePositions(fullBoard, [2,5,8]) === 'X'):
+            resultForX += '"X" won';
+            break;
+        case (checkUniquePositions(fullBoard, [0,4,8]) === 'X'):
+            resultForX += '"X" won';
+            break;
+        case (checkUniquePositions(fullBoard, [2,4,6]) === 'X'):
+            resultForX += '"X" won';
+            break;
+        default:
+            break;
+    }
+    return resultForX;
+}
+
+function checkForO(fullBoard) {
+    let resultForO = '';
+    
+    switch (true) {
+        case (fullBoard.slice(0, 3).every(pos => pos === 2)):
+            resultForO += '"O" won';
+            break;
+        case (fullBoard.slice(3, 6).every(pos => pos === 2)):
+            resultForO += '"O" won';
+            break;
+        case (fullBoard.slice(6).every(pos => pos === 2)):
+            resultForO += '"O" won';
+            break;
+        case (checkUniquePositions(fullBoard, [0,3,6]) === 'O'):
+            resultForO += '"O" won';
+            break;
+        case (checkUniquePositions(fullBoard, [1,4,7]) === 'O'):
+            resultForO += '"O" won';
+            break;
+        case (checkUniquePositions(fullBoard, [2,5,8]) === 'O'):
+            resultForO += '"O" won';
+            break;
+        case (checkUniquePositions(fullBoard, [0,4,8]) === 'O'):
+            resultForO += '"O" won';
+            break;
+        case (checkUniquePositions(fullBoard, [2,4,6]) === 'O'):
+            resultForO += '"O" won';
+            break;
+        default:
+            break;
+    }
+    return resultForO;
+}
+
+console.log(checkBoardCondition(ticTacBoard)); 
 
 /* 
 Вопросы:
-
+    1. Так или иначе точно должен быть вариант решения покороче?)
 */

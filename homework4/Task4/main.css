@@ -1,0 +1,19 @@
+a {
+    position: absolute;
+    top: 5px;
+    left: 5px;   
+}
+
+.main__container {
+    position: relative;
+    width: 800px;    
+    margin: 0 auto;
+    padding: 70px;    
+}
+
+.table__container {
+    position: absolute;
+    top: 11.7%;   
+    width: 800px;
+    height: 457px;
+}

@@ -50,6 +50,26 @@
 const needAmountOfChairs = 4;
 const otherMeetingRooms = [['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9]];
 
+function meeting(otherMRooms, needChairs) {
+    let allRoomsFreeChairs = [];    
+
+    otherMRooms.forEach(room => {
+        allRoomsFreeChairs.push(getSingleRoomFreeChairs(room));
+    });    
+    
+    let foundChairs = [...refactorFreeRoomChairs(allRoomsFreeChairs, needChairs)];
+    
+    switch (true) {
+        case foundChairs[0] < needChairs :
+            return 'Not enough!';        
+        case needChairs === 0 :
+            return 'Game On';           
+        default:
+            return `${foundChairs[1]}`;
+            
+    }
+}
+
 function getSingleRoomFreeChairs(singleRoom) {       
     let persons = singleRoom[0].length;   
     return persons < singleRoom[1] ? singleRoom[1] - persons : 0;
@@ -68,29 +88,6 @@ function refactorFreeRoomChairs(allRooms, chairs) {
         }
     }
     return [sumOfChairs, [refactoredFreeChairs]];
-}
-
-function meeting(otherMRooms, needChairs) {
-    let allRoomsFreeChairs = [];
-    
-
-    otherMRooms.forEach(room => {
-        allRoomsFreeChairs.push(getSingleRoomFreeChairs(room));
-    });    
-    
-    let foundChairs = [...refactorFreeRoomChairs(allRoomsFreeChairs, needChairs)];
-    
-    switch (true) {
-        case foundChairs[0] < needChairs :
-            return 'Not enough!';
-            break;
-        case needChairs === 0 :
-            return 'Game On';
-            break;
-        default:
-            return `${foundChairs[1]}`;
-            break;
-    }
 }
 
 alert((meeting(otherMeetingRooms, needAmountOfChairs))); 
