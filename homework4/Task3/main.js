@@ -9,7 +9,7 @@
 
     Варианты решения:
 
-    используя splice
+    используя splice - готово
     используя length / [ ] brackets
 */
 
@@ -31,7 +31,7 @@ console.log(`Result after using analogPop - ${defaultNums}`);
 
 
 
-const nums2 = [1,2,3];
+const defaultNums2 = [1,2,3];
 const arbitraryValue = 4;
 
 function analogPush(arr, arValue) {
@@ -39,7 +39,7 @@ function analogPush(arr, arValue) {
     return arr;
 }
 
-console.log(`\nAnalogPush method with splice return - ${analogPush(nums2, arbitraryValue)}`);
+console.log(`\nAnalogPush method with splice return - ${analogPush(defaultNums2, arbitraryValue)}`);
 
 /* ------------------------------------------------------------------------------- */
 
@@ -47,7 +47,7 @@ console.log(`\nAnalogPush method with splice return - ${analogPush(nums2, arbitr
 
 
 
-const nums3 = [1,2,3];
+const defaultNums3 = [1,2,3];
 
 function analogShift(arr) {
     let shiftValue = [];
@@ -55,8 +55,8 @@ function analogShift(arr) {
     return shiftValue;
 }
 
-console.log(`\nAnalogShift method with splice return - ${analogShift(nums3)}`); 
-console.log(`Result after using analogShift - ${nums3}`);
+console.log(`\nAnalogShift method with splice return - ${analogShift(defaultNums3)}`); 
+console.log(`Result after using analogShift - ${defaultNums3}`);
 
 /* ------------------------------------------------------------------------------- */
 
@@ -64,7 +64,7 @@ console.log(`Result after using analogShift - ${nums3}`);
 
 
 
-const nums4 = [1,2,3];
+const defaultNums4 = [1,2,3];
 const arbitraryValue2 = 0;
 
 function analogUnshift(arr, arValue) {
@@ -72,7 +72,7 @@ function analogUnshift(arr, arValue) {
     return arr;
 }
 
-console.log(`\nAnalogUnshift method with splice return - ${analogUnshift(nums4, arbitraryValue2)}`);
+console.log(`\nAnalogUnshift method with splice return - ${analogUnshift(defaultNums4, arbitraryValue2)}`);
 
 /* ------------------------------------------------------------------------------- */
 
@@ -80,14 +80,14 @@ console.log(`\nAnalogUnshift method with splice return - ${analogUnshift(nums4, 
 
 
 
-const nums5 = [1,2,3];
+const defaultNums5 = [1,2,3];
 
 function analogConcat(arr, ...otherArguments) {
     arr.splice(arr.length, 0, ...otherArguments);
     return arr;
 }
 
-console.log(`\nAnalogConcat method with splice return - ${analogConcat(nums5, [4,5])}`);
+console.log(`\nAnalogConcat method with splice return - ${analogConcat(defaultNums5, [4,5])}`);
 
 /* 
 Вопросы:
