@@ -52,9 +52,11 @@ const defaultArr3 = [1,2,3];
 function analogShiftV2(arr) {
     let shiftVal = [];    
     shiftVal[0] = arr[0];
-    for(let i = 0; i < arr.length; i++) {        
-        arr[i] = arr[i+1];        
-    }
+    arr[0] = arr[1];
+    arr[1] = arr[2];
+    // for(let i = 0; i < arr.length; i++) {        
+    //     arr[i] = arr[i+1];        
+    // }
     arr.length -= 1;
     return shiftVal;
     // let newArr = arr.reverse(); ???
@@ -76,10 +78,13 @@ function analogUnshiftV2(arr, val) {
     arr.length += 1;
     let newArr = [];
     newArr[0] = val;
-    for(let i = 0; i < arr.length; i++) {
-        if(arr[i] === undefined) continue;
-        newArr[i+1] = arr[i];
-    }
+    newArr[1] = arr[0];
+    newArr[2] = arr[1];
+    newArr[3] = arr[2];
+    // for(let i = 0; i < arr.length; i++) {
+    //     if(arr[i] === undefined) continue;
+    //     newArr[i+1] = arr[i];
+    // }
     return newArr;
 }
 
@@ -96,9 +101,12 @@ const concatArr1 = [4,5,6];
 
 function analogConcatV2(arr, conArr) {
     arr.length += conArr.length;
-    for(let i = 0; i < conArr.length; i++) {
-        arr[arr.length - 1 - i] = conArr[conArr.length - 1 - i];
-    }
+    arr[3] = conArr[0];
+    arr[4] = conArr[1];
+    arr[5] = conArr[2];
+    // for(let i = 0; i < conArr.length; i++) {
+    //     arr[arr.length - 1 - i] = conArr[conArr.length - 1 - i];
+    // }
     return arr;
 }
 
