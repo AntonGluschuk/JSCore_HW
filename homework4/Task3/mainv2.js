@@ -17,13 +17,14 @@ const defaultArr = [1,2,3];
 console.log(`Default array ${defaultArr}`);
 
 function analogPopV2(defArr) {
+    if (defArr.length === 0) return;
     let removedLastItem = defArr[defArr.length - 1];
     defArr.length -= 1;
-    return [removedLastItem];
+    return removedLastItem;
 }
 
-console.log(`\nanalogPop v2 return [${analogPopV2(defaultArr)}]`);
-console.log(`Result after using analogPop v2 - [${defaultArr}]`);
+console.log(`\nanalogPop v2 return - ${analogPopV2(defaultArr)}`);
+console.log(`Result after using analogPop v2 - ${defaultArr}`);
 
 /* ------------------------------------------------------------------------------- */
 
@@ -36,10 +37,10 @@ const arbitraryValue = 4;
 
 function analogPushV2(arr, val) {
     arr[arr.length] = val;
-    return arr;
+    return arr.length;
 }
 
-console.log(`\nResult after using analogPush v2 [${analogPushV2(defaultArr2, arbitraryValue)}]`);
+console.log(`\nResult after using analogPush v2 - ${analogPushV2(defaultArr2, arbitraryValue)}`);
 
 /* ------------------------------------------------------------------------------- */
 
@@ -50,8 +51,8 @@ console.log(`\nResult after using analogPush v2 [${analogPushV2(defaultArr2, arb
 const defaultArr3 = [1,2,3];
 
 function analogShiftV2(arr) {
-    let shiftVal = [];    
-    shiftVal[0] = arr[0];
+    if (arr.length === 0) return;
+    let shiftVal = arr[0];  
 
     // let newLenOfArr = arr.length-1;
     // for(let i = newLenOfArr; i > 0; i--){        trying something different
@@ -73,8 +74,8 @@ function analogShiftV2(arr) {
     // let newArr = arr.reverse(); ???
 }
 
-console.log(`\nanalogShift v2 return [${analogShiftV2(defaultArr3)}]`);
-console.log(`Result after using analogShift v2 - [${defaultArr3}]`);
+console.log(`\nanalogShift v2 return - ${analogShiftV2(defaultArr3)}`);
+console.log(`Result after using analogShift v2 - ${defaultArr3}`);
 
 /* ------------------------------------------------------------------------------- */
 
@@ -86,23 +87,24 @@ const defaultArr4 = [1,2,3];
 const arbitraryValue2 = 0;
 
 function analogUnshiftV2(arr, val) {
-    arr.length += 1;
-    let newArr = [];
-    newArr[0] = val;
+    arr.length += 1;   
 
     // newArr[1] = arr[0];
     // newArr[2] = arr[1];                          hardcode version
-    // newArr[3] = arr[2];
-
-    for(let i = 0; i < arr.length; i++) {
-        if(arr[i] === undefined) continue;       //loop verison
-        newArr[i+1] = arr[i];
+    // newArr[3] = arr[2];    
+    
+    for(let i = arr.length; i > 0; i--) {
+        let temp = arr[i-1];                    //loop verison
+        arr[i-1] = arr[arr.length - 1];
+        arr[i] = temp;       
     }
 
-    return newArr;
+    arr[0] = val;
+    arr.length -= 1;    
+    return arr.length;
 }
 
-console.log(`\nResult after using analogUnshift v2 [${analogUnshiftV2(defaultArr4, arbitraryValue2)}]`);
+console.log(`\nResult after using analogUnshift v2 - ${analogUnshiftV2(defaultArr4, arbitraryValue2)}`);
 
 /* ------------------------------------------------------------------------------- */
 
@@ -115,19 +117,23 @@ const concatArr1 = [4,5,6];
 
 function analogConcatV2(arr, conArr) {
     arr.length += conArr.length;
-
+    let newArr = [];
     // arr[3] = conArr[0];
     // arr[4] = conArr[1];                                                  harcode version
     // arr[5] = conArr[2];
 
     for(let i = 0; i < conArr.length; i++) {
-        arr[arr.length - 1 - i] = conArr[conArr.length - 1 - i];         //loop version
+        arr[arr.length - 1 - i] = conArr[conArr.length - 1 - i];         //loop version        
     }
+    for(let i = 0; i < arr.length; i++) {
+        newArr[i] = arr[i];
+    }
+    
 
-    return arr;
+    return newArr;
 }
 
-console.log(`\nResult after using analogConcat v2 [${analogConcatV2(defaultArr5, concatArr1)}]`);
+console.log(`\nResult after using analogConcat v2 ${analogConcatV2(defaultArr5, concatArr1)}`);
 
 /* 
 Вопросы:

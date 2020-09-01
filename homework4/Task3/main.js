@@ -17,6 +17,7 @@ const defaultNums = [1,2,3];
 console.log(`Default array: [${defaultNums}]`);
 
 function analogPop(arr) {
+    if (arr.length === 0) return; 
     let popValue = [];
     popValue = arr.splice(-1, 1);
     return popValue;
@@ -36,7 +37,7 @@ const arbitraryValue = 4;
 
 function analogPush(arr, arValue) {
     arr.splice(arr.length, 0, arValue);
-    return arr;
+    return arr.length;
 }
 
 console.log(`\nAnalogPush method with splice return - ${analogPush(defaultNums2, arbitraryValue)}`);
@@ -50,6 +51,7 @@ console.log(`\nAnalogPush method with splice return - ${analogPush(defaultNums2,
 const defaultNums3 = [1,2,3];
 
 function analogShift(arr) {
+    if (arr.length === 0) return;
     let shiftValue = [];
     shiftValue = arr.splice(0, 1);
     return shiftValue;
@@ -69,7 +71,7 @@ const arbitraryValue2 = 0;
 
 function analogUnshift(arr, arValue) {
     arr.splice(0, 0, arValue);
-    return arr;
+    return arr.length;
 }
 
 console.log(`\nAnalogUnshift method with splice return - ${analogUnshift(defaultNums4, arbitraryValue2)}`);
@@ -83,8 +85,10 @@ console.log(`\nAnalogUnshift method with splice return - ${analogUnshift(default
 const defaultNums5 = [1,2,3];
 
 function analogConcat(arr, ...otherArguments) {
+    let newArr = [];
     arr.splice(arr.length, 0, ...otherArguments);
-    return arr;
+    newArr.push(...arr);
+    return newArr;
 }
 
 console.log(`\nAnalogConcat method with splice return - ${analogConcat(defaultNums5, [4,5])}`);
