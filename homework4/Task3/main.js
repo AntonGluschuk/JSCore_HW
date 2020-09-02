@@ -17,10 +17,8 @@ const defaultNums = [1,2,3];
 console.log(`Default array: [${defaultNums}]`);
 
 function analogPop(arr) {
-    if (arr.length === 0) return; 
-    let popValue = [];
-    popValue = arr.splice(-1, 1);
-    return popValue;
+    if (arr.length === 0) return;   
+    return arr.splice(-1, 1);;
 }
 
 console.log(`\nAnalogPop method with splice return - ${analogPop(defaultNums)}`); 
@@ -51,10 +49,8 @@ console.log(`\nAnalogPush method with splice return - ${analogPush(defaultNums2,
 const defaultNums3 = [1,2,3];
 
 function analogShift(arr) {
-    if (arr.length === 0) return;
-    let shiftValue = [];
-    shiftValue = arr.splice(0, 1);
-    return shiftValue;
+    if (arr.length === 0) return;   
+    return arr.splice(0, 1);
 }
 
 console.log(`\nAnalogShift method with splice return - ${analogShift(defaultNums3)}`); 
@@ -75,6 +71,7 @@ function analogUnshift(arr, arValue) {
 }
 
 console.log(`\nAnalogUnshift method with splice return - ${analogUnshift(defaultNums4, arbitraryValue2)}`);
+console.log(`Result after using analogUnshift - ${defaultNums4}`);
 
 /* ------------------------------------------------------------------------------- */
 
