@@ -55,7 +55,7 @@ function checkBoardCondition(ttBoard) {
 }
 
 function checkUniquePositions(fullBoard, arrayOfPositions) {
-    let uniqueLine = fullBoard.filter((pos, index) => arrayOfPositions.includes(index))
+    let uniqueLine = fullBoard.filter(index => arrayOfPositions.includes(index))
     if(uniqueLine.every(pos => pos === 1)) return 'X';
     if(uniqueLine.every(pos => pos === 2)) return 'O';
 }
@@ -133,4 +133,5 @@ console.log(checkBoardCondition(ticTacBoard));
 /* 
 Вопросы:
     1. Так или иначе точно должен быть вариант решения покороче?)
+    2. Как реализовать вариант быстрой победы?
 */
