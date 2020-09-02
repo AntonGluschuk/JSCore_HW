@@ -51,6 +51,8 @@ const needAmountOfChairs = 4;
 const otherMeetingRooms = [['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9]];
 
 function meeting(otherMRooms, needChairs) {
+    if(needChairs === 0) return 'Game On';
+
     let allRoomsFreeChairs = [];    
 
     otherMRooms.forEach(room => {
@@ -61,9 +63,7 @@ function meeting(otherMRooms, needChairs) {
     
     switch (true) {
         case foundChairs[0] < needChairs :
-            return 'Not enough!';        
-        case needChairs === 0 :
-            return 'Game On';           
+            return 'Not enough!';               
         default:
             return `${foundChairs[1]}`;
             
@@ -90,7 +90,7 @@ function refactorFreeRoomChairs(allRooms, chairs) {
     return [sumOfChairs, [refactoredFreeChairs]];
 }
 
-alert((meeting(otherMeetingRooms, needAmountOfChairs))); 
+alert(meeting(otherMeetingRooms, needAmountOfChairs)); 
 
 /* 
 Вопросы:
