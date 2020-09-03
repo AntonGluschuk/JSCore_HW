@@ -1,0 +1,51 @@
+.traffic-light-container {    
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
+    align-items: center;    
+    margin: 0 auto;    
+    max-width: 450px;
+    height: 100%;
+    background-color: #fbf2ea;
+}
+
+.traffic-light__main {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 350px;
+    height: 100%;
+    margin: 10px 15px;
+    border: 2px solid #929191;
+    border-radius: 10px;
+}
+
+.traffic-light__one,
+.traffic-light__two,
+.traffic-light__three {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin: 10px 0;
+    background-color: #8b8b8b;
+    border-radius: 50%;
+}
+
+.traffic-light__button {
+    font-weight: thin;
+    font-size: 20px;
+    width: 90px;
+    height: 100%;
+    padding: 40px 0px;
+    margin-right: 10px;    
+    border-radius: 10px;
+    box-shadow: 5px 5px 1px -1px #8b8b8b;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.traffic-light__button:hover {
+    background: white;
+}

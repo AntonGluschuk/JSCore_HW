@@ -16,11 +16,11 @@ function getUptoDownString(someStr) {
 
 function checkTypeOfChar(chr) {
     if(/[0-9]/.test(chr)) {
-        return chr.replace(/[0-9]/, '_');
+        return '_';
     } else if(/[a-z]/.test(chr)) {
-        return chr.replace(/[a-z]/, math => math.toUpperCase());
+        return chr.toUpperCase();
     } else if(/[A-Z]/.test(chr)) {
-        return chr.replace(/[A-Z]/g, math => math.toLowerCase());
+        return chr.toLowerCase();
     }
 }
 

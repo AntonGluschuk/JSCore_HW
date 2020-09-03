@@ -17,7 +17,7 @@ const oneDigitNum = ['one', 'two', 'three',
                      'four', 'five', 'six',
                      'seven', 'eight', 'nine'];
 
-const num = 32;
+const num = 12;
 
 function getTextOfNum(n) {
     const [firstChar, secondChar] = String(n);    
