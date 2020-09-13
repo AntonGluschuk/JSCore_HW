@@ -1,0 +1,21 @@
+.images{
+    position: relative;
+    display: flex;
+    flex-direction: row; /* Для того чтобы js работал, ленту картинок нужно было разместить по горизонтали (изначально было по вертикали) для этого в див картинок было добавлено 2 css правила display:flex; и flex-direction: row; */
+	margin: 0;
+	font-size: 0;
+	top: 0;
+	transition: right 2s; /* Также свойство transition было изменено с top на right */
+}
+.slider{
+	width: 800px;
+	height: 480px;
+	overflow: hidden;
+}
+
+nav{
+	position: fixed;
+	top: 0; 
+	left: 0;
+	z-index: 1000;
+}

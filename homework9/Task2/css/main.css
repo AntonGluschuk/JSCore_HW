@@ -1,0 +1,31 @@
+.markers__form {
+    display: flex;
+    flex-direction: column;    
+    margin: 0 auto;
+    width: 600px;
+    height: 400px;
+}
+
+.markers__form_text {    
+    font-size: 100px;
+    resize: none;
+}
+
+.markers__form_options {
+    display: flex;
+    flex-direction: row;
+}
+
+.markers__form_refill {
+    width: 90px;
+    height: 50px;
+    margin: 10px 0;
+}
+
+.markers__form_refAmount {
+    width: 50px;
+    height: 30px;
+    margin: 23px 10px 10px 10px;
+    
+}
+
