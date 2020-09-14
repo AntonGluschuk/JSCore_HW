@@ -24,7 +24,7 @@ class Marker {
     constructor(color, inkAmount){ // Инициализируем класс Маркер
         this.color = color;    // Сохраняем цвет маркера
         this.inkAmount = inkAmount >= 0 && inkAmount < 100 ? inkAmount : null;  // Сохраняем количество чернил + проверка чтобы количество чернил было указано от 0 до 100  
-        this.charInk = inkAmount * 0.005;  // Количество чернил нужное для 1 символа         
+        this.charInk = inkAmount * 0.005;  // Количество чернил нужное для 1 символа                         
     }   
 
     printAnything(arbitraryString) { // Создаём метод printAnything который принимает любую строку:        
@@ -38,8 +38,7 @@ class Marker {
         if(this.inkAmount < 0) { 
             this.inkAmount = 0; // Если чернил меньше нуля то присвоить им 0 (нужно для адекватного исчерпывания чернил в маркере)
             return;
-        }
-        console.log(this.inkAmount);
+        }        
         return arbitraryString; // Возвращаем строку пройдя все тело функции
     }
 }
@@ -52,16 +51,19 @@ class RefillingMarker extends Marker {  // Инициализируем клас
 
 const redMarker = new Marker('red', 1); // Создаём экземпляр класса Маркер (красного цвета, чернил = 1)
 const refilledBlueMarker = new RefillingMarker('blue', 1); // Создаём экземпляр класса ЗаправляющийсяМаркер (синего цвета, чернил = 1)
-
 txtAr.addEventListener('keydown', event => { // Вешаем обработчик нажатий клавиш на клавиатуре   
+    totalInk.innerHTML = `Ink left: ${refilledBlueMarker.inkAmount}`;
     if(refilledBlueMarker.inkAmount === 0) event.preventDefault(); // Если в маркере закончились чернила, запретить отправку событий (Пока экземпляр Маркера нужно задавать явно)   
     event.key === ' ' ? null : refilledBlueMarker.printAnything(event.target.value); // Отправлять в метод класса printAnything все что печатается в textarea елементе    
 })
 
 refBtn.addEventListener('click', e => { // Вешаем обработчик кликов на кнопку Заправить маркер (сейчас работает только когда явно указан экземпляр класса ЗаправляющийсяМаркер)   
     refilledBlueMarker.refillMarker(+refAm.value); // Вызываем метод класса (ЗаправляющийсяМаркер) для пополнения чернил и передаём значение преобразование в число (так как input возвращает string)
+    totalInk.innerHTML = `Ink left: ${refilledBlueMarker.inkAmount}`;
     refAm.value = '';     // Очищаем поле input        
 })
+
+
 
 /* 
 Вопросы:
