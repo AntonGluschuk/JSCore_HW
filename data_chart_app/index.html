@@ -5,25 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Chart App</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="./images/logo.png">
 </head>
-<body>
-    <a href="../../index.html">Back</a>
+<body>    
+    <div class="starter_phrase">Waiting for generated diagram...</div>
+    <div class="arrowAnim">
+        <div class="arrowSliding">
+          <div class="arrow"></div>
+        </div>        
+      </div>    
+    <button class="side_button">☰</button>
+    <nav class="side__diagram_menu">
+        <form class="side__diagram_form">
+            <input class="btn_minMaxAgeStat" type="button" value="Age">
+            <input class="btn_genderStat" type="button" value="Male">
+            <input class="btn_sameNameStat" type="button" value="Name">
+            <input class="btn_surNameLengthStat" type="button" value="Surname">
+            <input class="btn_birthYearStat" type="button" value="Year of Birth">
+        </form> 
+        <lottie-player
+            class="finish_load" 
+            src="https://assets6.lottiefiles.com/datafiles/OhIfcxnkLsj1Jxj/data.json"  
+            background="transparent"
+            speed="1"
+            style="width: 50px; height: 50px;"            
+            count="1">
+        </lottie-player>       
+        <button class="btn_get_users">Generate users</button>
+    </nav>
     <div class="container">
-        <h1 class="daigram__title">Title</h1>
+        <h1 id="diagram_name" class="diagram__title"></h1>
         <div class="diagram">
             <canvas id="myChart"></canvas>
-        </div>
-        <div class="diagram__menu">
-            <form>
-                <input class="minMaxAgeStat" type="button" value="Age">
-                <input class="maleStat" type="button" value="Male">
-                <input class="sameNameStat" type="button" value="Name">
-                <input class="surNameLengthStat" type="button" value="Surname">
-                <input class="birthYearStat" type="button" value="Year of Birth">
-            </form>
-        </div>    
-    </div>    
+        </div>                   
+    </div> 
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>   
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="main.js"></script>
+    <script src="js/chartApp.js" type="module"></script>
 </body>
 </html>
