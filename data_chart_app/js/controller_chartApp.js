@@ -6,7 +6,8 @@ export default class ChartAppController{
         this.model = new ChartAppModel(this.usersMediator); // передаём метод посредник в модель
         this.view = new ChartAppView(this.getUsers, this.getAgesChart,
                                      this.getGenderChart, this.getDuplicateNamesChart,
-                                     this.getSurnamesLengthChart, this.getBirthYearChart); // для того чтобы получать пользователей по клику нужно передать view наш мудрёный метод getUsers (переходим во view для отслеживания нити выполнения)        
+                                     this.getSurnamesLengthChart, this.getBirthYearChart,
+                                     this.getDynamicChart); // для того чтобы получать пользователей по клику нужно передать view наш мудрёный метод getUsers (переходим во view для отслеживания нити выполнения)        
         this.users = [];      // Сохранение текущих юзеров в конструкторе для дальнешей передачи их методам создания диаграмм                  
     }
 
@@ -35,4 +36,9 @@ export default class ChartAppController{
     getBirthYearChart = () => {
         this.view.getChart(this.model.makeBirthYearChart(this.users));
     }
+
+    getDynamicChart = () => {        
+        this.view.dynamicChart(this.model.getDynamicDiagram());    
+        this.view.handleDynamicData(this.model.getDataForDynamic(this.users)); // Метод генерации пустой диаграммы и получение данных для динамического заполнения
+    }   
 }
