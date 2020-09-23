@@ -14,10 +14,11 @@ SoftServe JSCore courses - homework
 - Name button - show users duplicate names statistic. 
 - Surname button - show users surname length statistic.
 - Year of Birth button - show users birth years statistic.
+- Dynamic chart button - fill chart dynamically.
 
 ### Link to data chart app structure:
 * [Data chart](https://github.com/AntonGluschuk/JSCore_HW/tree/master/data_chart_app)
 
 
-### Deployed data chart app on github pages:
+## Deployed data chart app on github pages:
 [https://antongluschuk.github.io/JSCore_HW/data_chart_app/index.html](https://antongluschuk.github.io/JSCore_HW/data_chart_app/index.html)
