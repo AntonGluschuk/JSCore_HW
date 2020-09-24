@@ -18,13 +18,18 @@ export default class ChartAppView{
         this.btn_birthYearStat = document.querySelector('.btn_birthYearStat'); // Кнопка вывода статистики годов рождения пользователей        
              
         this.btn_drawDynamic = document.querySelector('.btn_drawDynamic');    // Кнопка рендера динамической диаграммы
+        this.btn_drawDynamic.setAttribute('disabled', 'disabled');
         this.chart = {}; // пустой объект для хранения текущего экземпляра Chart
         this.dynamicDataObj = {};    // объект хранящий данные для динамического заполнения
         this.interval = 0; // свойство для хранения метода setInterval
         this.count = 0;             // счётчик для динамического заполнения   
         
         this.btn_getUsers.addEventListener('click', () => {    
-            getUsers();                                                
+            this.btn_drawDynamic.setAttribute('disabled', 'disabled');
+            getUsers();
+            setTimeout(() => {
+                this.btn_drawDynamic.removeAttribute('disabled');
+            }, 1000)            
             this.finish_loader.play();
             setTimeout(() => {              // Вешаем обработку кликов на кнопку Generate users, в случае клика, загружаем юзеров методом getUsers(), включаем анимацию успешной загрузки и выключаем через 1.3 секунды
                 this.finish_loader.stop();
